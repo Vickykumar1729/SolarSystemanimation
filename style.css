@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: rgb(255, 204, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+
+.earth, .moon, .mars {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: vicky 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: vicky 5s linear infinite;
+}
+
+.mars {
+    top: 6em;
+    left: 6em;
+    width: 24em;
+    height: 24em;
+    animation: marsRotation 72.5s linear infinite;
+}
+
+.earth::before, .moon::before, .mars::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(80, 80, 201);
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+.mars::before {
+    top: 1.5em;
+    right: 1.5em;
+    width: 2em;
+    height: 2em;
+    background-color: rgb(255, 0, 0);
+}
+
+.mercury {
+    position: absolute;
+    top: 7em;
+    left: 7em;
+    width: 20em;
+    height: 20em;
+    animation: mercuryRotation 88.75s linear infinite;
+    z-index: 2; /* To ensure Mercury appears on top of Mars */
+}
+
+.venus {
+    position: absolute;
+    top: 2.5em; /* To adjust the distance from the top */
+    left: 2.5em; /* To adjust the distance from the left */
+    width: 16em;
+    height: 16em;
+    animation: venusRotation 75s linear infinite;
+    z-index: 1; /* To ensure Venus appears between Mercury and Earth */
+}
+
+
+.mercury::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: rgb(169, 169, 169); /* Mercury's color */
+}
+
+
+.venus::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 0.4em;
+    right: 0.1em;
+    width: 0.6em;
+    height: 0.6em;
+    background-color: rgb(244, 179, 66); /* Venus's color */
+}
+
+@keyframes venusRotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes mercuryRotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes vicky {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes marsRotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
